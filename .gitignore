@@ -1,0 +1,6 @@
+*.un~
+html
+gmon.out
+obj
+bin
+darklands
