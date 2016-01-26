@@ -1,3 +1,4 @@
+#include <math.h>
 #include <string.h>
 #include <stdlib.h>
 #include "draw.h"
@@ -56,13 +57,41 @@ void draw_stars(WINDOW* win)
  *
  * If the rectangle would go out of bounds, it is cut off.
  */
-void draw_rect(WINDOW* win, int row, int col, int height, int width, char shape)
+void draw_rect(WINDOW* win, int row, int col, int height, int width, char shape, int filled)
+{
+    int rows, cols;
+    getmaxyx(win, rows, cols);
+
+    int imin = clamp(row, 0, rows);
+    int imax = clamp(row + height, 0, rows);
+    int jmin = clamp(col, 0, cols);
+    int jmax = clamp(col + width, 0, cols);
+    for(int i = imin; i < imax; ++i) {
+        for(int j = jmin; j < jmax; ++j) {
+            char s = shape;
+            if(!filled && j != jmin && i != imin && j != jmax - 1 && i != imax - 1)
+                s = ' ';
+            mvwaddch(win, i, j, s);
+        }
+    }
+}
+
+/*
+ * This function draws a filled ellipse with the specified dimensions at the
+ * specified position. The shape argument determines what character will be the
+ * fill for the rectangle.
+ *
+ * If the ellipse would go out of bounds, it is cut off.
+ */
+void draw_ellipse(WINDOW* win, int row, int col, int height, int width, char shape)
 {
     int rows, cols;
     getmaxyx(win, rows, cols);
 
     for(int i = clamp(row, 0, rows); i < clamp(row + height, 0, rows); ++i) {
-        for(int j = clamp(col, 0, cols); j < clamp(col + width, 0, cols); ++j) {
+        float ratio = (float)(i - row) / height;
+        float w = sin(degtorad(ratio * 180)) * width;
+        for(int j = clamp(col + ((width - ceil(w))), 0, cols); j < clamp(col + ceil(w), 0, cols); ++j) {
             mvwaddch(win, i, j, shape);
         }
     }

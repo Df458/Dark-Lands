@@ -31,6 +31,15 @@ void draw_stars(WINDOW* win);
  *
  * If the rectangle would go out of bounds, it is cut off.
  */
-void draw_rect(WINDOW* win, int row, int col, int height, int width, char shape);
+void draw_rect(WINDOW* win, int row, int col, int height, int width, char shape, int filled);
+
+/*
+ * This function draws a filled ellipse with the specified dimensions at the
+ * specified position. The shape argument determines what character will be the
+ * fill for the rectangle.
+ *
+ * If the ellipse would go out of bounds, it is cut off.
+ */
+void draw_ellipse(WINDOW* win, int row, int col, int height, int width, char shape);
 
 #endif

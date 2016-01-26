@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "draw.h"
+#include "map.h"
 
 #define MINIMUM_TERM_ROWS 24
 #define MINIMUM_TERM_COLS 80
@@ -62,15 +63,25 @@ int main(int argc, char* argv[])
     color_set(1, 0);
     draw_stars(stdscr);
     color_set(2, 0);
-    draw_rect(stdscr, rows / 2 + 3, 0, rows / 2 - 3, cols, '#');
+    draw_rect(stdscr, rows / 2 + 3, 0, rows / 2 - 3, cols, '.', 1);
 
     // Reset our color
     color_set(0, 0);
 
+    draw_ellipse(stdscr, 3, 15, 10, 12, '*');
+    for(int i = 0; i < 10; ++i)
+        draw_ellipse(stdscr, rows / 2 - 10 + (rand() % 8 - 4), (i * (cols / 10) + (rand() % 4 - 2)) + (rand() % 20 - 10), 8 + (rand() % 10 - 5), 60 + (rand() % 20 - 10), '-');
+
     // Print the title, then wait for a button press before exiting
+    draw_rect(stdscr, rows / 2 - 12, cols / 2 - 20, 15, 40, '#', 0);
     const char* title_str = "Cool Game Title";
-    draw_text_aligned(stdscr, 3, "Cool Game Title", ALIGN_CENTER);
+    draw_text_aligned(stdscr, rows / 2 - 10, "Cool Game Title", ALIGN_CENTER);
     draw_text_aligned(stdscr, rows / 2, "Press any key to continue", ALIGN_CENTER);
+    getch();
+
+    // Create and draw a test map
+    generate_map();
+    draw_map();
     getch();
 
     // End Curses
