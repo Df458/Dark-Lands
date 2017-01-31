@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3093f73e/
+ANIMATION_H	animation.h	/^#define ANIMATION_H$/;"	d
+MENU_SIZE	main.c	/^const uint8_t MENU_SIZE = 5;$/;"	v	typeref:typename:const uint8_t
+add_window	main.c	/^WINDOW* add_window(int lines, int cols, int y, int x) {$/;"	f	typeref:typename:WINDOW *
+angle	animation.c	/^static float angle = 0.f;$/;"	v	typeref:typename:float	file:
+animation_draw	animation.c	/^void animation_draw(WINDOW* win) {$/;"	f	typeref:typename:void
+charmap_draw	main.c	/^void charmap_draw(WINDOW* win) {$/;"	f	typeref:typename:void
+color_draw	main.c	/^void color_draw(WINDOW* win) {$/;"	f	typeref:typename:void
+colorlist	animation.c	/^static int   colorlist[3] = { 0, 7, 8 };$/;"	v	typeref:typename:int[3]	file:
+controls_draw	main.c	/^void controls_draw(WINDOW* win) {$/;"	f	typeref:typename:void
+init_colors	main.c	/^void init_colors() {$/;"	f	typeref:typename:void
+inout	animation.c	/^static float inout = 0.f;$/;"	v	typeref:typename:float	file:
+main	main.c	/^int main(int argc, char* argv[])$/;"	f	typeref:typename:int
+menu_items	main.c	/^const char* menu_items[] = {$/;"	v	typeref:typename:const char * []
+msleep	compat.h	/^#define msleep(/;"	d
+spinner	main.c	/^const char spinner[] = {$/;"	v	typeref:typename:const char[]
+styles_draw	main.c	/^void styles_draw(WINDOW* win) {$/;"	f	typeref:typename:void
