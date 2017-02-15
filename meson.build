@@ -12,5 +12,6 @@ common_args = []
 sdl_args = common_args + []
 term_args = common_args + [ '-D', 'TERMBUILD' ]
 
+subdir('src')
 subdir('examples/hello_world')
 subdir('examples/demo_app')
