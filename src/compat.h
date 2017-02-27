@@ -22,3 +22,6 @@
 #include <unistd.h>
 #define msleep(x) usleep(x * 1000)
 #endif // _WIN32
+
+#define VIEW_LINES 25
+#define VIEW_COLS 80

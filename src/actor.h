@@ -9,8 +9,10 @@ typedef struct actor {
     int color_pair;
 } actor;
 
+typedef struct map map;
+
 actor* actor_new(uint8_t character, uint16_t y, uint16_t x);
-void actor_draw(actor* a);
+void actor_draw(actor* a, map* m, actor* focus);
 void actor_free(actor* a);
 
 #endif
