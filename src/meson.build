@@ -1,4 +1,4 @@
-main_src  = [ 'actor.c', 'main.c', 'map.c' ]
+main_src  = [ 'actor.c', 'main.c', 'map.c', 'point.c' ]
 main_sdl  = executable('game_sdl', main_src,
                      dependencies : sdl_deps,
                      link_args : sdl_args,
