@@ -20,6 +20,9 @@ map* map_new(uint16_t lines, uint16_t columns) {
         for(int j = 0; j < columns; ++j) {
             m->data[i][j].character = 219;
             m->data[i][j].solid = TRUE;
+            m->data[i][j].inv.item_list = malloc(sizeof(item));
+            m->data[i][j].inv.item_count = 0;
+            m->data[i][j].inv.item_slots = 1;
         }
     }
 
@@ -329,7 +332,7 @@ void map_generate_river(map* m, uint16_t column) {
         }
     }
 }
-void map_draw(map* m, actor* focus) {
+void map_draw(WINDOW* win, map* m, actor* focus) {
     // Get the offset needed to put the focus in the center of the view
     int offset_y = focus->position.line - (VIEW_LINES / 2);
     int offset_x = focus->position.column - (VIEW_COLS / 2);
@@ -345,17 +348,37 @@ void map_draw(map* m, actor* focus) {
     // Draw with the calculated offset
     for(int i = (offset_y > 0 ? offset_y : 0); i < (offset_y + VIEW_LINES <= m->lines ? offset_y + VIEW_LINES : m->lines); ++i) {
         for(int j = (offset_x > 0 ? offset_x : 0); j < (offset_x + VIEW_COLS <= m->columns ? offset_x + VIEW_COLS : m->columns); ++j) {
-            color_set(m->data[i][j].color_pair, NULL);
-            mvaddch(i - offset_y, j - offset_x, m->data[i][j].character);
+            if(m->data[i][j].inv.item_count == 0) {
+                wcolor_set(win, m->data[i][j].color_pair, NULL);
+                mvwaddch(win, i - offset_y, j - offset_x, m->data[i][j].character);
+            } else {
+                item* it = m->data[i][j].inv.item_list[m->data[i][j].inv.item_count - 1];
+                wcolor_set(win, it->color_pair, NULL);
+                mvwaddch(win, i - offset_y, j - offset_x, it->character);
+            }
         }
     }
 }
 tile* get_tile(map* m, point p) {
+    if(p.line < 0 || p.column < 0 || p.line >= m->lines || p.column >= m->columns)
+        return NULL;
     return &m->data[p.line][p.column];
+}
+point map_get_random_empty_tile(map* m) {
+    point p;
+
+    do {
+        p = (point){ .line=(rand() % m->lines - 1) + 1, .column=(rand() % m->columns - 1) + 1 };
+    } while(m->data[p.line][p.column].solid);
+
+    return p;
 }
 void map_free(map* m) {
     for(int i = 0; i < m->lines; ++i) {
         free(m->data[i]);
+        for(int j = 0; j < m->columns; ++j) {
+            inventory_cleanup(&(m->data[i][j].inv));
+        }
     }
     free(m);
 }

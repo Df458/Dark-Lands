@@ -1,0 +1,101 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/c031a7c0/
+CHARACTER_H	actor.h	/^#define CHARACTER_H$/;"	d
+INVENTORY_H	inventory.h	/^#define INVENTORY_H$/;"	d
+ITEM_H	item.h	/^#define ITEM_H$/;"	d
+LOG_H	log.h	/^#define LOG_H$/;"	d
+MAP_H	map.h	/^#define MAP_H$/;"	d
+POINT_H	point.h	/^#define POINT_H$/;"	d
+VIEW_COLS	compat.h	/^#define VIEW_COLS /;"	d
+VIEW_LINES	compat.h	/^#define VIEW_LINES /;"	d
+actor	actor.h	/^typedef struct actor {$/;"	s
+actor	actor.h	/^} actor;$/;"	t	typeref:struct:actor
+actor	item.h	/^typedef struct actor actor;$/;"	t	typeref:struct:actor
+actor	map.h	/^typedef struct actor actor;$/;"	t	typeref:struct:actor
+actor_draw	actor.c	/^void actor_draw(WINDOW* win, actor* a, map* m, actor* focus) {$/;"	f	typeref:typename:void
+actor_free	actor.c	/^void actor_free(actor* a) {$/;"	f	typeref:typename:void
+actor_new	actor.c	/^actor* actor_new(uint8_t character, point p) {$/;"	f	typeref:typename:actor *
+actor_try_move	actor.c	/^uint8_t actor_try_move(actor* a, map* m, point offset) {$/;"	f	typeref:typename:uint8_t
+attack	actor.h	/^    uint16_t attack;$/;"	m	struct:actor	typeref:typename:uint16_t
+character	actor.h	/^    uint8_t character;$/;"	m	struct:actor	typeref:typename:uint8_t
+character	item.h	/^    uint8_t character;$/;"	m	struct:item	typeref:typename:uint8_t
+character	map.h	/^    uint8_t character;$/;"	m	struct:tile	typeref:typename:uint8_t
+color_pair	actor.h	/^    int color_pair;$/;"	m	struct:actor	typeref:typename:int
+color_pair	item.h	/^    int color_pair;$/;"	m	struct:item	typeref:typename:int
+color_pair	map.h	/^    int color_pair;$/;"	m	struct:tile	typeref:typename:int
+column	point.h	/^    uint16_t column;$/;"	m	struct:point	typeref:typename:uint16_t
+columns	map.h	/^    uint16_t columns;$/;"	m	struct:map	typeref:typename:uint16_t
+count	item.h	/^    uint16_t count;$/;"	m	struct:item	typeref:typename:uint16_t
+create_boots	item.c	/^item* create_boots(uint16_t count) {$/;"	f	typeref:typename:item *
+create_potion	item.c	/^item* create_potion(uint16_t count) {$/;"	f	typeref:typename:item *
+create_trap	item.c	/^item* create_trap(uint16_t count) {$/;"	f	typeref:typename:item *
+data	map.h	/^    tile** data;$/;"	m	struct:map	typeref:typename:tile **
+defense	actor.h	/^    uint16_t defense;$/;"	m	struct:actor	typeref:typename:uint16_t
+draw_game	main.c	/^void draw_game() {$/;"	f	typeref:typename:void
+game_map	main.c	/^map* game_map;$/;"	v	typeref:typename:map *
+get_tile	map.c	/^tile* get_tile(map* m, point p) {$/;"	f	typeref:typename:tile *
+give_item	inventory.c	/^void give_item(inventory* inv, item* it) {$/;"	f	typeref:typename:void
+grass_chars	map.c	/^const char grass_chars[] = {$/;"	v	typeref:typename:const char[]
+group_flood	map.c	/^int group_flood(int** groups, point p, point corner, int group_index) {$/;"	f	typeref:typename:int
+hp	actor.h	/^    uint16_t hp;$/;"	m	struct:actor	typeref:typename:uint16_t
+hp_max	actor.h	/^    uint16_t hp_max;$/;"	m	struct:actor	typeref:typename:uint16_t
+i_boots	item.c	/^const item i_boots = {$/;"	v	typeref:typename:const item
+i_potion	item.c	/^const item i_potion = {$/;"	v	typeref:typename:const item
+i_trap	item.c	/^const item i_trap = {$/;"	v	typeref:typename:const item
+inv	actor.h	/^    inventory inv;$/;"	m	struct:actor	typeref:typename:inventory
+inv	map.h	/^    inventory inv;$/;"	m	struct:tile	typeref:typename:inventory
+inventory	inventory.h	/^typedef struct inventory {$/;"	s
+inventory	inventory.h	/^} inventory;$/;"	t	typeref:struct:inventory
+inventory_panel	inventory.c	/^int32_t inventory_panel(uint8_t can_default, inventory* inv) {$/;"	f	typeref:typename:int32_t
+item	item.h	/^typedef struct item item;$/;"	t	typeref:struct:item
+item	item.h	/^typedef struct item {$/;"	s
+item	item.h	/^} item;$/;"	t	typeref:struct:item
+item_callback	item.h	/^typedef uint8_t (*item_callback)(item* i, struct actor* target);$/;"	t	typeref:typename:uint8_t (*)(item * i,struct actor * target)
+item_count	inventory.h	/^    uint16_t item_count;$/;"	m	struct:inventory	typeref:typename:uint16_t
+item_list	inventory.h	/^    item** item_list;$/;"	m	struct:inventory	typeref:typename:item **
+item_run_callback	inventory.c	/^void item_run_callback(inventory* inv, uint16_t index, actor* a, item_callback c) {$/;"	f	typeref:typename:void
+item_slots	inventory.h	/^    uint16_t item_slots;$/;"	m	struct:inventory	typeref:typename:uint16_t
+level	actor.h	/^    uint16_t level;$/;"	m	struct:actor	typeref:typename:uint16_t
+line	point.h	/^    uint16_t line;$/;"	m	struct:point	typeref:typename:uint16_t
+lines	map.h	/^    uint16_t lines;$/;"	m	struct:map	typeref:typename:uint16_t
+log_draw	log.c	/^void log_draw() {$/;"	f	typeref:typename:void
+log_init	log.c	/^void log_init() {$/;"	f	typeref:typename:void
+log_panel	log.c	/^static PANEL* log_panel;$/;"	v	typeref:typename:PANEL *	file:
+log_shutdown	log.c	/^void log_shutdown() {$/;"	f	typeref:typename:void
+log_window	log.c	/^static WINDOW* log_window;$/;"	v	typeref:typename:WINDOW *	file:
+main	main.c	/^int main() {$/;"	f	typeref:typename:int
+map	actor.h	/^typedef struct map map;$/;"	t	typeref:struct:map
+map	map.h	/^typedef struct map {$/;"	s
+map	map.h	/^} map;$/;"	t	typeref:struct:map
+map_draw	map.c	/^void map_draw(WINDOW* win, map* m, actor* focus) {$/;"	f	typeref:typename:void
+map_free	map.c	/^void map_free(map* m) {$/;"	f	typeref:typename:void
+map_generate_drunkards	map.c	/^void map_generate_drunkards(map* m, actor* a, float map_percent) {$/;"	f	typeref:typename:void
+map_generate_erode	map.c	/^void map_generate_erode(map* m, actor* a, int ratio) {$/;"	f	typeref:typename:void
+map_generate_river	map.c	/^void map_generate_river(map* m, uint16_t column) {$/;"	f	typeref:typename:void
+map_new	map.c	/^map* map_new(uint16_t lines, uint16_t columns) {$/;"	f	typeref:typename:map *
+map_place_water	map.c	/^void map_place_water(map* m, map* src, point loc) {$/;"	f	typeref:typename:void
+map_window	main.c	/^WINDOW* map_window;$/;"	v	typeref:typename:WINDOW *
+msleep	compat.h	/^#define msleep(/;"	d
+name	item.h	/^    char* name;$/;"	m	struct:item	typeref:typename:char *
+names	item.c	/^char* names[] = {$/;"	v	typeref:typename:char * []
+on_step	item.h	/^    item_callback on_step;$/;"	m	struct:item	typeref:typename:item_callback
+on_use	item.h	/^    item_callback on_use;$/;"	m	struct:item	typeref:typename:item_callback
+player	main.c	/^actor* player;$/;"	v	typeref:typename:actor *
+point	point.h	/^typedef struct point {$/;"	s
+point	point.h	/^} point;$/;"	t	typeref:struct:point
+point_add	point.c	/^point point_add(point p1, point p2) {$/;"	f	typeref:typename:point
+point_sub	point.c	/^point point_sub(point p1, point p2) {$/;"	f	typeref:typename:point
+position	actor.h	/^    point position;$/;"	m	struct:actor	typeref:typename:point
+potion_use	item.c	/^uint8_t potion_use(item* i, actor* a) {$/;"	f	typeref:typename:uint8_t
+solid	map.h	/^    bool solid;$/;"	m	struct:tile	typeref:typename:bool
+stats_panel	actor.c	/^void stats_panel(actor* a) {$/;"	f	typeref:typename:void
+take_item	inventory.c	/^item* take_item(inventory* inv, uint16_t index) {$/;"	f	typeref:typename:item *
+tile	map.h	/^typedef struct tile {$/;"	s
+tile	map.h	/^} tile;$/;"	t	typeref:struct:tile
+trap_step	item.c	/^uint8_t trap_step(item* i, actor* a) {$/;"	f	typeref:typename:uint8_t
+xp	actor.h	/^    uint16_t xp;$/;"	m	struct:actor	typeref:typename:uint16_t

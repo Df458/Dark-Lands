@@ -6,7 +6,7 @@ compiler = meson.get_compiler('c')
 
 common_deps = [ compiler.find_library('m', required : false) ]
 sdl_deps  = common_deps + [ compiler.find_library('pdcurses'), dependency('sdl') ]
-term_deps = common_deps + [ dependency('ncurses') ]
+term_deps = common_deps + [ dependency('ncurses'), dependency('panel') ]
 
 common_args = []
 sdl_args = common_args + []

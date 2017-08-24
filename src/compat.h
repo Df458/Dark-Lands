@@ -5,11 +5,14 @@
 
 #if defined TERMBUILD
 #include <curses.h>
+#include <panel.h>
 #else  // TERMBUILD
 #if defined __linux__
 #include <xcurses/curses.h>
+#include <xcurses/panel.h>
 #else  // __linux__
 #include <curses.h>
+#include <panel.h>
 #endif // __linux__
 #endif // TERMBUILD
 
